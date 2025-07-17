@@ -2,7 +2,7 @@
 
 ## 🔎 Fase: Set + Seek
 
-**Actividad 01: Diseño y arte generativo**
+## Actividad 01
 
 **¿Qué es el diseño generativo?**
 El diseño generativo es una metodología creativa que utiliza la programación para generar resultados visuales mediante un conjunto de reglas definidas. En lugar de construir manualmente cada parte del diseño, se crea un sistema que produce múltiples soluciones posibles. Es como diseñar un proceso en vez de un solo objeto final.
