@@ -37,10 +37,10 @@ Me emociona mucho ser parte de este momento. Profesionalmente, me imagino partic
 
 ## Actividad 03
 
- **Ejemplo original analizado:**
+ **Ejemplo original:**
 [P\_2\_2\_4\_01 – Circle Packing (Generative Design)](http://www.generative-gestaltung.de/2/sketches/?01_P/P_2_2_4_01)
 
- **Mi versión modificada del experimento en p5.js:**
+ **Mi versión:**
 (https://editor.p5js.org/just_gamb04/sketches/8E9nN87Lq)
 ### Análisis de funcionamiento
 
