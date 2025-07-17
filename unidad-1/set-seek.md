@@ -31,7 +31,6 @@ Veo un enorme potencial en las experiencias inmersivas colectivas. Nos permiten 
 **Nosotros estamos definiendo en TIEMPO REAL una nueva forma de expresión, una nueva forma de interactuar de manera colectiva. Estamos diseñando nuevas maneras de contar historias e interactuar con ellas. ¿Cómo te ves profesionalmente en este escenario?**
 Me emociona mucho ser parte de este momento. Profesionalmente, me imagino participando en proyectos donde el límite entre arte, tecnología y experiencia se disuelve. Quiero aprender a crear entornos interactivos que respondan al movimiento, al sonido o a las emociones de las personas. Me veo diseñando experiencias inmersivas que combinen narrativas no lineales, interacción colectiva y visuales generativas. Siento que en este campo no solo se trata de entretener, sino también de provocar reflexión, conexión y nuevas formas de comunicación.
 
-¡Con gusto! Aquí tienes toda la **Bitácora de la Actividad 03** completa, clara y lista para entregar, incluyendo el análisis, tu experimento y el **código funcional corregido**.
 
 ---
 
