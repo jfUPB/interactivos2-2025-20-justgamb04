@@ -20,7 +20,7 @@ Creo que el diseño y arte generativo pueden ampliar mucho mi forma de pensar la
 
 ---
 
-**Actividad 02**
+## Actividad 02
 
 **Antes de lo que hemos discutido, ¿qué pensabas que hacía un Ingeniero en Diseño de Entretenimiento Digital con énfasis en experiencias interactivas?**
 Antes de estas discusiones y ejemplos, mi idea del rol de un ingeniero en diseño de entretenimiento digital era más limitada. Pensaba principalmente en el desarrollo de videojuegos, animaciones o aplicaciones interactivas, con un enfoque técnico y estético. Lo veía como alguien que programaba experiencias visuales o interactivas atractivas, combinando arte digital y tecnología. Sin embargo, ahora veo que se trata de crear sistemas de interacción que involucran emociones, narrativa, inmersión y, sobre todo, participación activa del usuario.
