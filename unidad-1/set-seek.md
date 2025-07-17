@@ -5,12 +5,12 @@
 ## Actividad 01
 
 **¿Qué es el diseño generativo?**
-El diseño generativo es una metodología creativa que utiliza la programación para generar resultados visuales mediante un conjunto de reglas definidas. En lugar de construir manualmente cada parte del diseño, se crea un sistema que produce múltiples soluciones posibles. Es como diseñar un proceso en vez de un solo objeto final.
+El diseño generativo es un método creativo que usa la programación para generar resultados visuales mediante unas reglas definidas. En lugar de construir manualmente cada parte del diseño, se crea un sistema que produce múltiples soluciones posibles. Es como diseñar un proceso en vez de un solo objeto final.
 
 **¿Qué es el arte generativo?**
-Es una forma de creación artística que utiliza código o sistemas computacionales para generar imágenes, sonidos o experiencias visuales. Nosotros definimos el conjunto de instrucciones, y a partir de eso, el sistema produce obras de arte que pueden llegar ser distintas cada vez. 
+Es una forma de creación artística que utiliza un código para generar imágenes, sonidos o experiencias visuales. Nosotros definimos el conjunto de instrucciones, y a partir de eso, el sistema produce obras de arte que pueden llegar ser distintas cada vez. 
 
-**¿Cuál es la diferencia entre el diseño/arte generativo vs el diseño/arte tradicional?**
+**¿Cuál es la diferencia?**
 La diferencia principal diría yo que está en el proceso creativo. En el arte y diseño tradicional, la persona creadora tiene control total sobre cada decisión visual. En cambio, en el arte y diseño generativo, se diseña un sistema que produce múltiples resultados, metiéndo la aleatoriedad y la autonomía de la máquina. Esto cambia el rol del creador: ya no se trata tanto de crear una pieza única, sino de establecer las condiciones para que muchas versiones surjan de manera automatizada o semi-automática.
 
 **¿Qué posibilidades crees que esto puede ofrecer a tu perfil profesional?**
