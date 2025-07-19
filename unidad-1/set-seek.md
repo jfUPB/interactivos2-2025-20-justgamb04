@@ -140,3 +140,134 @@ function keyReleased() {
   }
 }
 ```
+
+---
+
+## Actividad 04
+
+**Mi sketch en p5.js:**
+https://editor.p5js.org/just_gamb04/sketches/YGGfc9Vl9
+
+### ¿Qué hace el experimento?
+
+Genera figuras geométricas como el círculo, cuadrado o triángulo, con características aleatorias pero controladas por la posición del mouse. Solo se dibuja un tipo de figura a la vez, y este tipo puede cambiar al hacer clic.
+
+### Documentación de los cambios realizados
+
+#### 1. **Generación básica de figuras aleatorias**
+
+Primero escribí un `for` que dibuja varias figuras por cuadro. La cantidad es aleatoria, y cada forma tiene una posición, color y tamaño también aleatorios. Usé `ellipse()`, `rect()` y `triangle()`.
+
+```javascript
+let shapeType = 0;
+```
+
+#### 2. **Control de cantidad con `mouseX`**
+
+Modifiqué la cantidad de formas generadas en cada `draw()` en función de la posición horizontal del mouse.
+
+```javascript
+let cantidad = int(map(mouseX, 0, width, 1, 20));
+```
+
+Esto permitió que mover el cursor hacia la derecha aumente la velocidad de dibujo.
+
+#### 3. **Control de tamaño con `mouseY`**
+
+Después agregué un mapeo de la posición vertical del mouse (`mouseY`) para ajustar el tamaño de las formas.
+
+```javascript
+let size = map(mouseY, 0, height, 10, 100);
+```
+
+#### 4. **Posicionamiento basado en el cursor**
+
+Las figuras ya no se generan en todo el canvas, sino cerca del cursor, con un poco de aleatoriedad para que no estén exactamente en el mismo punto.
+
+```javascript
+let offsetX = random(-20, 20);
+let offsetY = random(-20, 20);
+let x = mouseX + offsetX;
+let y = mouseY + offsetY;
+```
+
+#### 5. **Control de figura activa con clic**
+
+Por último, implementé la lógica para que el usuario pueda alternar entre formas geométricas con solo hacer clic.
+
+```javascript
+function mousePressed() {
+  shapeType = (shapeType + 1) % 3;
+}
+```
+
+Cada clic cambia el tipo de figura entre:
+0 = círculo, 1 = cuadrado, 2 = triángulo
+
+
+#### 6. **Teclas para guardar o limpiar**
+
+Agregué funciones básicas para guardar la imagen (`S`) y limpiar la pantalla (`Backspace` o `Delete`).
+
+```javascript
+function keyReleased() {
+  if (key == 's' || key == 'S') saveCanvas('forma_unica_controlada', 'png');
+  if (keyCode === BACKSPACE || keyCode === DELETE) {
+    background(255);
+  }
+}
+```
+
+### Código final completo
+
+```javascript
+let shapeType = 0; // 0 = círculo, 1 = cuadrado, 2 = triángulo
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  noStroke();
+  background(255);
+}
+
+function draw() {
+  let cantidad = int(map(mouseX, 0, width, 1, 20));
+  let size = map(mouseY, 0, height, 10, 100);
+
+  for (let i = 0; i < cantidad; i++) {
+    fill(random(255), random(255), random(255), 150);
+
+    let offsetX = random(-20, 20);
+    let offsetY = random(-20, 20);
+    let x = mouseX + offsetX;
+    let y = mouseY + offsetY;
+
+    if (shapeType == 0) {
+      ellipse(x, y, size, size);
+    } else if (shapeType == 1) {
+      rect(x, y, size, size);
+    } else if (shapeType == 2) {
+      triangle(
+        x, y,
+        x + size, y,
+        x + size / 2, y - size
+      );
+    }
+  }
+}
+
+function mousePressed() {
+  shapeType = (shapeType + 1) % 3;
+}
+
+function keyReleased() {
+  if (key == 's' || key == 'S') saveCanvas('forma_unica_controlada', 'png');
+  if (keyCode === BACKSPACE || keyCode === DELETE) {
+    background(255);
+  }
+}
+```
+
+### Reflexión final
+
+Este experimento me ayudó a comprender cómo diseñar experiencias generativas interactivas, donde el usuario tiene control sobre lo que ocurre en pantalla. Me parece muy útil como base para instalaciones en las que el público pueda "dibujar" con su cuerpo, el sonido o incluso dispositivos táctiles.
+
