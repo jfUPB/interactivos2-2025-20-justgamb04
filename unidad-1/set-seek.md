@@ -36,129 +36,107 @@ Me emociona mucho ser parte de este momento. Profesionalmente, me imagino partic
 
 ## Actividad 03
 
- **Ejemplo original:**
-[P\_2\_2\_4\_01 – Circle Packing (Generative Design)](http://www.generative-gestaltung.de/2/sketches/?01_P/P_2_2_4_01)
+**Experimento seleccionado:**
+[https://editor.p5js.org/generative-design/sketches/ByZZgqcqpk4](http://www.generative-gestaltung.de/2)
 
- **Mi versión:**
-(https://editor.p5js.org/just_gamb04/sketches/8E9nN87Lq)
-### Análisis de funcionamiento
+**Mi versión modificada:**
+https://editor.p5js.org/just_gamb04/sketches/NWedwU2du
 
-El ejemplo original está basado en un sistema de **agregación por difusión limitada**, donde los círculos se colocan uno al lado del otro siguiendo reglas simples, creando estructuras visuales orgánicas. Cada círculo nuevo se genera alrededor del anterior más cercano, y este proceso se repite hasta llegar a un número máximo de círculos.
+### ¿Cómo funciona?
 
-Este enfoque es muy útil para explorar conceptos como crecimiento, conexión y ocupación del espacio.
+Genera un comportamiento visual que recorre la pantalla dejando un rastro circular. El número de movimientos que realiza por cada ciclo se controla con la posición del mouse en el eje X. A mayor valor en X (mayor posición en la derecha), mayor número de repeticiones, lo que da la sensación de mayor velocidad de dibujo.
+El trazo se forma con base en estas decisiones aleatorias, entonces, cada ejecución produce una composición distinta.
 
-### Modificaciones realizadas
+### ¿Qué parámetro modifiqué?
 
-Para hacer el ejemplo más interactivo y visualmente atractivo, modifiqué la lógica para que:
+Decidí modificar el parámetro `diameter`, que controla el tamaño de los círculos. Lo vinculé a la posición vertical del mouse (`mouseY`) utilizando la función `map()`, para que el tamaño de los trazos se pueda ajustar en tiempo real dependiendo de la altura del cursor.
+También cambié el color del trazo a un azul claro (`fill(0, 150, 255, 50)`).
 
-1. **Los círculos se generen alrededor del mouse**, en vez de en posiciones aleatorias del canvas.
-2. **Los colores sean aleatorios en modo HSB** con transparencia, dando una estética más viva y dinámica.
-3. **Los círculos crezcan progresivamente** hasta tocar el borde del lienzo o a otro círculo.
-4. **El sketch se reinicie automáticamente** una vez que se alcanza un número determinado de círculos (`maxCircles`), creando una animación cíclica continua.
+### ¿Cómo podría servir esto para el proyecto del curso?
 
-### Aplicación al proyecto del curso
+Este tipo de lógica generativa puede ser útil en el desarrollo de experiencias inmersivas que respondan al comportamiento de los usuarios. Me interesa cómo un sistema aparentemente simple puede producir resultados complejos y visualmente ricos. En el contexto de una instalación colectiva, podríamos usar este tipo de agentes para visualizar en tiempo real los movimientos del público, entradas sonoras, o datos captados por sensores, generando patrones visuales únicos e irrepetibles. 
+Mi idea del proyecto del curso va muy ligado a la interacción con las emociones del usuario, por lo que me serviría poder aliniar esto a otros parámetros como la frecuencia cardíaca, temperatura, entre otras cosas para determinar el color, fuerza de trazo y velocidad de dibujo.
 
-Este tipo de sistema generativo tiene mucho potencial para el diseño de **experiencias inmersivas e interactivas**. La lógica de generación autónoma puede ser aplicada para visualizar datos de los participantes, representar actividad en un espacio físico o digital, o simplemente como fondo visual reactivo en tiempo real.
-
-Imagino usar este tipo de código como base para instalaciones donde los movimientos del público (detectados por sensores, cámaras o micrófonos) generen formas en tiempo real, conectando a los usuarios con la visualidad del sistema de forma directa y colectiva.
-
-
-### Código modificado en p5.js
+### Código completo (versión modificada)
 
 ```javascript
-let circles = [];
-let maxCircles = 500; // cantidad máxima antes de reiniciar
-let attempts = 10;
+// P_2_2_1_01 MODIFICADO
+//
+// Generative Gestaltung – Creative Coding im Web
+// Versión modificada por estudiante para la Actividad 03
+
+'use strict';
+
+var NORTH = 0;
+var NORTHEAST = 1;
+var EAST = 2;
+var SOUTHEAST = 3;
+var SOUTH = 4;
+var SOUTHWEST = 5;
+var WEST = 6;
+var NORTHWEST = 7;
+var direction;
+
+var stepSize = 1;
+var diameter = 1;
+
+var posX;
+var posY;
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
   noStroke();
-  colorMode(HSB, 360, 100, 100, 100);
-  background(0);
+  fill(0, 40);
+  posX = width / 2;
+  posY = height / 2;
+  background(255); // Fondo blanco para mejorar contraste
 }
 
 function draw() {
-  let count = 0;
-  while (count < 5) {
-    let newCircle = createCircle(mouseX, mouseY);
-    if (newCircle !== null) {
-      circles.push(newCircle);
-      count++;
-    } else {
-      break; // Si no encuentra espacio, detiene el intento
-    }
-  }
+  // El diámetro depende de la posición vertical del mouse
+  diameter = map(mouseY, 0, height, 1, 20);
+  // Color azul con transparencia
+  fill(0, 150, 255, 50);
 
-  for (let c of circles) {
-    if (c.growing) {
-      if (c.edges() || c.hasCollided(circles)) {
-        c.growing = false;
-      } else {
-        c.radius += 0.5;
-      }
-    }
-    c.display();
-  }
+  for (var i = 0; i <= mouseX; i++) {
+    direction = int(random(0, 8));
 
-  // Reinicia automáticamente cuando llega al máximo definido
-  if (circles.length >= maxCircles) {
-    resetSketch();
+    if (direction == NORTH) {
+      posY -= stepSize;
+    } else if (direction == NORTHEAST) {
+      posX += stepSize;
+      posY -= stepSize;
+    } else if (direction == EAST) {
+      posX += stepSize;
+    } else if (direction == SOUTHEAST) {
+      posX += stepSize;
+      posY += stepSize;
+    } else if (direction == SOUTH) {
+      posY += stepSize;
+    } else if (direction == SOUTHWEST) {
+      posX -= stepSize;
+      posY += stepSize;
+    } else if (direction == WEST) {
+      posX -= stepSize;
+    } else if (direction == NORTHWEST) {
+      posX -= stepSize;
+      posY -= stepSize;
+    }
+
+    if (posX > width) posX = 0;
+    if (posX < 0) posX = width;
+    if (posY < 0) posY = height;
+    if (posY > height) posY = 0;
+
+    ellipse(posX + stepSize / 2, posY + stepSize / 2, diameter, diameter);
   }
 }
 
-function createCircle(x, y) {
-  for (let i = 0; i < attempts; i++) {
-    let posX = x + random(-50, 50);
-    let posY = y + random(-50, 50);
-    let newCircle = new Circle(posX, posY);
-    if (!newCircle.hasCollided(circles)) {
-      return newCircle;
-    }
+function keyReleased() {
+  if (key == 's' || key == 'S') saveCanvas('generative_sketch', 'png');
+  if (keyCode == DELETE || keyCode == BACKSPACE) {
+    clear();
+    background(255); // Fondo blanco al limpiar
   }
-  return null;
-}
-
-class Circle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.radius = 1;
-    this.growing = true;
-    this.col = color(random(360), 80, 100, 60); // HSB color con transparencia
-  }
-
-  hasCollided(others) {
-    for (let other of others) {
-      let d = dist(this.x, this.y, other.x, other.y);
-      if (d < this.radius + other.radius + 2) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  edges() {
-    return (
-      this.x + this.radius > width ||
-      this.x - this.radius < 0 ||
-      this.y + this.radius > height ||
-      this.y - this.radius < 0
-    );
-  }
-
-  display() {
-    fill(this.col);
-    ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
-  }
-}
-
-function resetSketch() {
-  circles = [];
-  background(0);
 }
 ```
-
-### Conclusión del experimento
-
-Este ejercicio me permitió entender cómo usar código para crear visuales emergentes a partir de reglas simples, pero con resultados ricos y expresivos. Me pareció especialmente interesante cómo se puede combinar estética, lógica algorítmica e interacción del usuario para generar algo vivo. Creo que este tipo de herramientas serán clave para los proyectos colectivos del curso, donde lo visual responde activamente a la acción del público.
-
