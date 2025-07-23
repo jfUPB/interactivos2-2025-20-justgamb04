@@ -143,7 +143,7 @@ https://editor.p5js.org/just_gamb04/sketches/VoSivHzuX
 
 ---
 
-## Etapa 5: Explorar
+## Etapa 5 - Explorar
 
 ##  Cambios
 
