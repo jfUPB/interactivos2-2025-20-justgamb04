@@ -164,11 +164,15 @@ strokeWeight((mouseX + sin(frameCount * 0.05) * 50) / 40);
 
 Esto permite que el grosor varíe en el tiempo, generando movimiento visual.
 
+<img width="592" height="456" alt="image" src="https://github.com/user-attachments/assets/019afa69-f614-4521-b89b-b370c36c866d" />
+
+
 ###  3. Cambio de color dinámico y aleatorio:
 
 ```js
 stroke(random(100, 255), random(100, 255), random(100, 255), 150);
 ```
+<img width="1147" height="590" alt="image" src="https://github.com/user-attachments/assets/ed8decc2-8993-4fbb-afe8-2dbd7f823726" />
 
 ## Código modificado
 ```js
@@ -235,4 +239,240 @@ function keyReleased() {
   if (key == '3') actStrokeCap = PROJECT;
 }
 ```
+Perfecto. A continuación, te presento la redacción de la **Etapa 6: TINKER**, con un enfoque más **arriesgado, experimental y transformador**, incluyendo:
+
+1. La **descripción de todos los cambios importantes** realizados.
+2. Fragmentos relevantes del código modificado.
+3. El **código final completo** al final.
+
+---
+
+##  Etapa 6 - Tinker
+
+### Cambios realizados 
+
+¡Buen punto! Gracias por señalarlo. Tienes toda la razón. Aquí complemento la **Etapa 6: TINKER** con lo que faltó: la **explicación de los tres estilos de línea**, que fueron fundamentales para aumentar la diversidad visual del patrón.
+
+---
+
+### Estilos de linea
+
+implementé tres estilos de lineas distintos que se activan dependiendo de la posicion del mouse en X.
+
+#### 1. **Estilo 1:**
+
+Cuando el mouse está en la parte izquierda, se dibujan líneas diagonales tradicionales similares al patrón original, pero con peso variable y desplazamiento.
+
+```js
+if (toggle == 0) {
+  strokeWeight(map(mouseX, 0, width, 0.5, 5));
+  line(posX, posY, posX + stepSize + shapeOffsetX, posY + stepSize + shapeOffsetY);
+}
+```
+
+#### 2. **Estilo 2:**
+
+Cuando el mouse está en el centro, se invierte la dirección de la línea diagonal.
+```js
+else if (toggle == 1) {
+  strokeWeight(map(mouseY, 0, height, 0.5, 5));
+  line(posX, posY + stepSize + shapeOffsetY, posX + stepSize + shapeOffsetX, posY);
+}
+```
+
+#### 3. **Estilo 3:**
+
+Cuando el mouse se encuentra en el último tercio (derecha), se generan curvas suaves que aportan **organicidad** al patrón y lo alejan completamente del diseño original de líneas rectas.
+
+```js
+else if (toggle == 2) {
+  strokeWeight(1.5 + sin(frameCount * 0.1 + gridX + gridY) * 1.5);
+  curve(
+    posX - 20, posY + 20,
+    posX, posY,
+    posX + stepSize + shapeOffsetX, posY + stepSize + shapeOffsetY,
+    posX + 30, posY - 30
+  );
+}
+```
+
+Estos tres modos se seleccionan con esto:
+
+```js
+let toggle;
+if (mouseX < width / 3) toggle = 0;
+else if (mouseX < 2 * width / 3) toggle = 1;
+else toggle = 2;
+```
+
+
+### **Desplazamiento constante del patrón**
+
+Agregamos dos variables `offsetX` y `offsetY` que modifican continuamente la posición del patrón completo, generando un **efecto de movimiento**.
+
+```js
+let offsetX = 0;
+let offsetY = 0;
+let dirX = 0;
+let dirY = 1; // Dirección inicial: abajo
+```
+
+Cada frame, actualizamos estas variables:
+
+```js
+offsetX += dirX;
+offsetY += dirY;
+```
+
+### **Control de dirección con el teclado**
+
+Redefinimos las teclas `1`, `2`, `3` y `4` para cambiar la dirección del desplazamiento:
+
+```js
+if (key == '1') { dirX = 0; dirY = 1; }    // abajo  
+if (key == '2') { dirX = 0; dirY = -1; }   // arriba  
+if (key == '3') { dirX = 1; dirY = 0; }    // derecha  
+if (key == '4') { dirX = -1; dirY = 0; }   // izquierda  
+```
+<img width="1297" height="593" alt="image" src="https://github.com/user-attachments/assets/6c2548dc-a85b-4fad-8c0a-b9cf0fd1e2b8" />
+<img width="1304" height="600" alt="image" src="https://github.com/user-attachments/assets/69105d04-8a53-46fc-bbdc-de0903cf7b7c" />
+
+
+
+### **Reaparición infinita del patrón**
+
+Para evitar que el patrón se salga del canvas y desaparezca, usamos `modulo (%)` para envolver las posiciones y simular que el patrón es **infinito**:
+
+```js
+let posX = (baseX + width) % width;
+let posY = (baseY + height) % height;
+```
+
+### **Ondas y curvas para mayor organicidad**
+
+Se añadieron ondas mediante `sin()` y `cos()` para simular un movimiento orgánico:
+
+```js
+let waveX = sin(frameCount * 0.01 + gridX) * 10;
+let waveY = cos(frameCount * 0.01 + gridY) * 10;
+```
+
+También se agregó un tipo de figura curva al azar para dar más fluidez visual:
+
+```js
+curve(
+  posX - 20, posY + 20,
+  posX, posY,
+  posX + stepSize + shapeOffsetX, posY + stepSize + shapeOffsetY,
+  posX + 30, posY - 30
+);
+```
+
+### **Estilo completamente nuevo con color HSB y movimiento orgánico**
+
+Reemplazamos el sistema de color plano por uno más dinámico con `colorMode(HSB)` y tonos dependientes del tiempo y la posición:
+
+```js
+colorMode(HSB, 360, 100, 100, 100);
+
+stroke(
+  map(gridX, 0, tileCount, 100, 255),
+  map(gridY, 0, tileCount, 100, 255),
+  map(sin(frameCount * 0.01), -1, 1, 100, 255),
+  100
+);
+```
+
+##  Código completo 
+
+```js
+'use strict';
+
+let tileCount = 20;
+let actStrokeCap;
+let actRandomSeed = 0;
+
+let offsetX = 0;
+let offsetY = 0;
+let dirX = 0;
+let dirY = 1; // Dirección inicial: abajo
+
+function setup() {
+  createCanvas(600, 600);
+  colorMode(HSB, 360, 100, 100, 100);
+  actStrokeCap = ROUND;
+  strokeCap(actStrokeCap);
+  noFill();
+}
+
+function draw() {
+  clear();
+  randomSeed(actRandomSeed);
+
+  let stepSize = width / tileCount;
+
+  offsetX += dirX;
+  offsetY += dirY;
+
+  for (let gridY = 0; gridY < tileCount; gridY++) {
+    for (let gridX = 0; gridX < tileCount; gridX++) {
+
+      let waveX = sin(frameCount * 0.01 + gridX) * 10;
+      let waveY = cos(frameCount * 0.01 + gridY) * 10;
+
+      let baseX = (gridX * stepSize + offsetX + waveX) % width;
+      let baseY = (gridY * stepSize + offsetY + waveY) % height;
+
+      let posX = (baseX + width) % width;
+      let posY = (baseY + height) % height;
+
+      let shapeOffsetX = random(-10, 10);
+      let shapeOffsetY = random(-10, 10);
+
+      stroke(
+        map(gridX, 0, tileCount, 100, 255),
+        map(gridY, 0, tileCount, 100, 255),
+        map(sin(frameCount * 0.01), -1, 1, 100, 255),
+        100
+      );
+
+      let toggle;
+      if (mouseX < width / 3) toggle = 0;
+      else if (mouseX < 2 * width / 3) toggle = 1;
+      else toggle = 2;
+
+      if (toggle == 0) {
+        strokeWeight(map(mouseX, 0, width, 0.5, 5));
+        line(posX, posY, posX + stepSize + shapeOffsetX, posY + stepSize + shapeOffsetY);
+      } else if (toggle == 1) {
+        strokeWeight(map(mouseY, 0, height, 0.5, 5));
+        line(posX, posY + stepSize + shapeOffsetY, posX + stepSize + shapeOffsetX, posY);
+      } else if (toggle == 2) {
+        strokeWeight(1.5 + sin(frameCount * 0.1 + gridX + gridY) * 1.5);
+        curve(
+          posX - 20, posY + 20,
+          posX, posY,
+          posX + stepSize + shapeOffsetX, posY + stepSize + shapeOffsetY,
+          posX + 30, posY - 30
+        );
+      }
+    }
+  }
+}
+
+function mousePressed() {
+  actRandomSeed = random(100000); // Cambia aleatoriedad
+}
+
+function keyReleased() {
+  if (key == 's' || key == 'S') saveCanvas(gd.timestamp(), 'png');
+
+  // Direcciones de desplazamiento
+  if (key == '1') { dirX = 0; dirY = 1; }    // abajo
+  if (key == '2') { dirX = 0; dirY = -1; }   // arriba
+  if (key == '3') { dirX = 1; dirY = 0; }    // derecha
+  if (key == '4') { dirX = -1; dirY = 0; }   // izquierda
+}
+```
+
 
