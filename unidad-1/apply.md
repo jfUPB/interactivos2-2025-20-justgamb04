@@ -43,9 +43,6 @@ function keyReleased() {
 
 Con estas, se puede cambiar la forma en que terminan las líneas con las teclas 1, 2 o 3 (`ROUND`, `SQUARE`, `PROJECT`). cambia el estilo visual del trazo.
 
-
-Aquí tienes la **Etapa 4 – Convertir (Convert)** del método de deconstrucción/reconstrucción, redactada como un estudiante de Ingeniería en Diseño de Entretenimiento Digital:
-
 ---
 
 ### **Etapa 4 – Convertir**
@@ -77,7 +74,7 @@ Aquí tienes la **Etapa 4 – Convertir (Convert)** del método de deconstrucci�
    strokeWeight(map(mouseX, 0, width, 1, 10));
    ```
 
-Así tengo más control sobre el grosor según el ancho del canvas. También hice lo mismo con `mouseY`.
+Así tengo más control sobre el grosor según el ancho. También lo hice con `mouseY`.
 
 quedando el codigo así: 
 
@@ -144,6 +141,10 @@ https://editor.p5js.org/just_gamb04/sketches/VoSivHzuX
 ---
 
 ## Etapa 5 - Explorar
+
+## Version de explore
+
+https://editor.p5js.org/just_gamb04/sketches/d6scQI8wh
 
 ##  Cambios
 
@@ -239,11 +240,6 @@ function keyReleased() {
   if (key == '3') actStrokeCap = PROJECT;
 }
 ```
-Perfecto. A continuación, te presento la redacción de la **Etapa 6: TINKER**, con un enfoque más **arriesgado, experimental y transformador**, incluyendo:
-
-1. La **descripción de todos los cambios importantes** realizados.
-2. Fragmentos relevantes del código modificado.
-3. El **código final completo** al final.
 
 ---
 
@@ -251,15 +247,12 @@ Perfecto. A continuación, te presento la redacción de la **Etapa 6: TINKER**, 
 
 ### Cambios realizados 
 
-¡Buen punto! Gracias por señalarlo. Tienes toda la razón. Aquí complemento la **Etapa 6: TINKER** con lo que faltó: la **explicación de los tres estilos de línea**, que fueron fundamentales para aumentar la diversidad visual del patrón.
-
----
-
 ### Estilos de linea
 
 implementé tres estilos de lineas distintos que se activan dependiendo de la posicion del mouse en X.
 
-#### 1. **Estilo 1:**
+#### 1. Estilo 1:
+<img width="1300" height="554" alt="image" src="https://github.com/user-attachments/assets/4ca7ce58-9678-4313-95f2-b53f15cb3aaf" />
 
 Cuando el mouse está en la parte izquierda, se dibujan líneas diagonales tradicionales similares al patrón original, pero con peso variable y desplazamiento.
 
@@ -270,7 +263,8 @@ if (toggle == 0) {
 }
 ```
 
-#### 2. **Estilo 2:**
+#### 2. Estilo 2:
+<img width="1284" height="603" alt="image" src="https://github.com/user-attachments/assets/802d69d9-f1bb-4ed4-8b0e-3ca96c8fc1fc" />
 
 Cuando el mouse está en el centro, se invierte la dirección de la línea diagonal.
 ```js
@@ -280,7 +274,8 @@ else if (toggle == 1) {
 }
 ```
 
-#### 3. **Estilo 3:**
+#### 3. Estilo 3:
+<img width="1291" height="595" alt="image" src="https://github.com/user-attachments/assets/f7fae02e-550e-44ea-a646-0dab8b9b32de" />
 
 Cuando el mouse se encuentra en el último tercio (derecha), se generan curvas suaves que aportan **organicidad** al patrón y lo alejan completamente del diseño original de líneas rectas.
 
@@ -306,9 +301,9 @@ else toggle = 2;
 ```
 
 
-### **Desplazamiento constante del patrón**
+### Desplazamiento constante
 
-Agregamos dos variables `offsetX` y `offsetY` que modifican continuamente la posición del patrón completo, generando un **efecto de movimiento**.
+Agregué dos variables `offsetX` y `offsetY` que modifican continuamente la posición del patrón, generando un efecto de movimiento.
 
 ```js
 let offsetX = 0;
@@ -317,7 +312,7 @@ let dirX = 0;
 let dirY = 1; // Dirección inicial: abajo
 ```
 
-Cada frame, actualizamos estas variables:
+En cada frame se actualizan estas variables:
 
 ```js
 offsetX += dirX;
@@ -326,7 +321,7 @@ offsetY += dirY;
 
 ### **Control de dirección con el teclado**
 
-Redefinimos las teclas `1`, `2`, `3` y `4` para cambiar la dirección del desplazamiento:
+Redefiní las teclas `1`, `2`, `3` y `4` para cambiar la dirección del desplazamiento envés de que cambie los bordes:
 
 ```js
 if (key == '1') { dirX = 0; dirY = 1; }    // abajo  
@@ -341,23 +336,20 @@ if (key == '4') { dirX = -1; dirY = 0; }   // izquierda
 
 ### **Reaparición infinita del patrón**
 
-Para evitar que el patrón se salga del canvas y desaparezca, usamos `modulo (%)` para envolver las posiciones y simular que el patrón es **infinito**:
-
+Al inicio el patrón al desplazarlo, no volvía a aparecer, por lo que para evitrar esto y que se quede la pantalla vacía. usé `modulo (%)` para envolver las posiciones haciendo que parezca infinito:
 ```js
 let posX = (baseX + width) % width;
 let posY = (baseY + height) % height;
 ```
 
-### **Ondas y curvas para mayor organicidad**
+### Ondas y curvas
 
-Se añadieron ondas mediante `sin()` y `cos()` para simular un movimiento orgánico:
+Añadí ondas usando `sin()` y `cos()` para simular un movimiento orgánico como si fueran olas:
 
 ```js
 let waveX = sin(frameCount * 0.01 + gridX) * 10;
 let waveY = cos(frameCount * 0.01 + gridY) * 10;
 ```
-
-También se agregó un tipo de figura curva al azar para dar más fluidez visual:
 
 ```js
 curve(
@@ -368,9 +360,9 @@ curve(
 );
 ```
 
-### **Estilo completamente nuevo con color HSB y movimiento orgánico**
+### distintos colores
 
-Reemplazamos el sistema de color plano por uno más dinámico con `colorMode(HSB)` y tonos dependientes del tiempo y la posición:
+Puse que con `colorMode(HSB)` el patron de lineas tuviera colores dependientes del tiempo y la posición:
 
 ```js
 colorMode(HSB, 360, 100, 100, 100);
@@ -382,6 +374,9 @@ stroke(
   100
 );
 ```
+## Versión reconstruida
+
+https://editor.p5js.org/just_gamb04/sketches/3xys16hU6
 
 ##  Código completo 
 
@@ -475,4 +470,6 @@ function keyReleased() {
 }
 ```
 
+### ¿Por qué hice estos cambios?
 
+Siendo sincero, quería experimentar haciendo que la generación de figuras se sintiera más viva, esto lo busque haciendo que se mueva, que parezca que las líneas respiren, también esto explica el porqué de los colores. Algo con lo que quiero jugar es con la generación de imagenes basadas en la lectura de las emociones humanas, uno no puede interpretar una imagen de una emocion con algo tan quieto, tan poco colorido. la emoción es algo humano que muestra que estamos vivos, debo reflejar esto en las imágenes.
