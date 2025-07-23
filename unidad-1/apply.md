@@ -470,6 +470,8 @@ function keyReleased() {
 }
 ```
 
+---
+
 ### Etapa 7 – Reflect
 
 Siendo sincero, desde el inicio de esta actividad quise llevar el ejemplo base en una dirección mucho más viva. Mi objetivo fue que la generación visual se sintiera como algo vivo.
