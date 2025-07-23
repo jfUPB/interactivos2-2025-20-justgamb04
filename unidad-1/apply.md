@@ -470,6 +470,12 @@ function keyReleased() {
 }
 ```
 
-### ¿Por qué hice estos cambios?
+### Etapa 7 – Reflect
 
-Siendo sincero, quería experimentar haciendo que la generación de figuras se sintiera más viva, esto lo busque haciendo que se mueva, que parezca que las líneas respiren, también esto explica el porqué de los colores. Algo con lo que quiero jugar es con la generación de imagenes basadas en la lectura de las emociones humanas, uno no puede interpretar una imagen de una emocion con algo tan quieto, tan poco colorido. la emoción es algo humano que muestra que estamos vivos, debo reflejar esto en las imágenes.
+Siendo sincero, desde el inicio de esta actividad quise llevar el ejemplo base en una dirección mucho más viva. Mi objetivo fue que la generación visual se sintiera como algo vivo.
+Por eso comencé a experimentar con el movimiento. Quería que las líneas se desplazaran, que parecieran latir y moverse. Esa fue la principal razón por la que implementé desplazamientos continuos, direcciones variables controladas por el usuario, y también una reaparición infinita que hiciera la ilusión de que el sistema es ifnito. 
+No quería quedarme con una estética monocromática y estática. La emoción humana es color, es movimiento, es vibración. En ese sentido, los colores que varían aleatoriamente y se combinan con las líneas curvas, rectas e invertidas aportan a el objetivo de que se sienta vivo.
+Yo quiero explorar y diseñar para crear imágenes que puedan traducir emociones humanas. Y para mí, una emoción no puede ser una figura estática en blanco y negro. Una emoción se expresa en fluctuaciones, intensidad, ritmo y movimiento, eso es lo que traté de lograr en este código. 
+Esta etapa me enseñó que el diseño generativo no solo tiene que ver con estética o repetición visual, sino que pudo darme un buen acercamiento para tener la capacidad de representar conceptos abstractos, como la emoción, a través de formas en movimiento. Siento que esto fue un primer paso hacia esa dirección.
+
+
