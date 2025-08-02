@@ -55,4 +55,20 @@ También pienso en si uno de los inputs se eliminara, especialmente el de las pa
 
 ---
 
+## Actividad 03
+
+### Diferencia entre “evento” y “nodo generativo”
+
+En una narrativa tradicional, como una película o novela, los eventos son momentos fijos en la historia que el autor ya ha definido, hay un inicio, un clímax y un desenlace que siempre ocurren igual, sin importar cuántas veces se vea la obra. En cambio, en una experiencia como Prometeo, lo que tenemos no son eventos cerrados, sino nodos generativos, un nodo no contiene una decisión ya tomada, sino que abre posibilidades múltiples. Por ejemplo, el inicio del show no está predeterminado, depende de cómo Nerón inicie su performance ese día, cómo modula su voz, cómo se mueve. Cada una de esas variables desencadena un camino diferente en tiempo real.
+
+### ¿Quién tiene más agencia en la creación de “Prometeo”?
+
+En mi opinión, la agencia está distribuida de forma muy equilibrada, pero si tuviera que elegir a quien tiene más poder creativo en la experiencia final, diría que es el artista. Nerón, a través de su interpretación vocal, su energía corporal y su presencia en el escenario, activa todo el sistema. Su actuación es el motor del sistema generativo, No solo eso, su intuición como performer le permite improvisar, explorar intensidades distintas y marcar el ritmo emocional de cada fase.
+
+### Epifanía vs. Empatía en experiencias inmersivas
+
+La empatía se trata de conectar emocionalmente con lo que otro siente. Es algo más pasivo, más vinculado a pone en el lugar de otro personaje. En cambio, una epifanía es un momento personal de claridad, de revelación interna. En Prometeo, el objetivo es que cada espectador viva su propia experiencia transformadora, no que simplemente entienda lo que el artista expresa. 
+Al ver sus propias emociones transformarse en elementos hermosos dentro del sistema visual, el público experimenta una catarsis, que va más allá de la empatía y se convierte en una realización íntima, emocionalmente profunda y única.
+
+
 
