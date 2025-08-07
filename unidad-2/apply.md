@@ -8,26 +8,26 @@
 
 **Ícaro – Vuelo y Caída en Tiempo Real**
 
-## **Canción seleccionada:**
+## Canción seleccionada:
 
 ["Ícaro" – Nerón Arkano]([https://open.spotify.com/intl-es/track/4RaP2ouejO3rWYvvxteXY5?si=aa3b99e3b38e4b42](https://open.spotify.com/intl-es/track/4RaP2ouejO3rWYvvxteXY5?si=338eb16e32804a9d))
 
-## **Interpretación de la canción:**
+## Interpretación de la canción:
 
-“Ícaro” transmite una sensación de lucha interna y vulnerabilidad emocional, mezclando metáforas sobre la caída, el desgaste personal y la búsqueda de un sentido en medio del dolor. La letra combina momentos de introspección con imágenes de batalla emocional, llevando al oyente a un viaje de vuelo y caída constante. Percibo un relato que oscila entre la esperanza y la derrota, donde el protagonista se enfrenta a fuerzas internas y externas que amenazan con consumirlo, pero aún así busca volar.
+“Ícaro” interpreta una lucha interna y vulnerabilidad emocional, mezclando metáforas sobre la caída, el desgaste personal y la búsqueda de un sentido en medio del dolor. esta letra combina momentos de introspección con imágenes de batalla emocional, llevando a los oyentes a un viaje de vuelo y caída constante (de ahí el nombre de la canción). 
 
-## **Concepto Raíz:**
+## Concepto Raíz:
 
-La experiencia busca recrear el vuelo y la caída de Ícaro como una metáfora visual y sonora de la lucha humana contra sus propios límites. El espacio escénico se transformará en un cielo digital en constante cambio, donde la voz y el movimiento del artista controlarán corrientes de luz y partículas que representan plumas y fuego. El objetivo es que el público no solo vea un espectáculo, sino que sienta que está dentro del viaje: la elevación, la tensión, la caída y la transformación final. Las visuales serán orgánicas, respondiendo directamente a la energía de la interpretación, para que cada presentación sea única e irrepetible. La emoción clave es transmitir que incluso en la caída hay belleza, y que el vuelo, aunque arriesgado, es un acto profundamente humano.
+Esta experiencia busca recrear el vuelo y la caída de Ícaro como una metáfora visual y sonora de la lucha humana contra sus propios límites. El espacio escénico se transformará en un cielo digital en constante cambio, donde la voz y el movimiento del artista controlarán corrientes de luz y partículas que representan plumas y fuego. El objetivo es que el público sienta que está dentro del viaje: la elevación, la tensión, la caída y la transformación final. Las visuales deberán ser orgánicas, respondiendo directamente a la energía de la interpretación, para que cada presentación sea única e irrepetible. La emoción clave es transmitir que incluso en la caída hay belleza.
 
-## **Inputs:**
+## Inputs:
 
-1. **Voz del artista (micrófono en tiempo real):**
+1. **Voz de Nerón (micrófono en tiempo real):**
 
    * Amplitud (0–1) para medir intensidad emocional.
    * Frecuencia dominante (Hz) para determinar la paleta de colores.
 
-2. **Movimiento del artista en el escenario (cámara Kinect):**
+2. **Movimiento de Nerón en el escenario (cámara Kinect):**
 
    * Coordenadas (X, Y) para desplazar el centro de gravedad visual.
 
@@ -39,7 +39,7 @@ La experiencia busca recrear el vuelo y la caída de Ícaro como una metáfora v
 
    * Analizadas por polaridad emocional (+ positivo / - negativo).
 
-## **Process (detallado):**
+## **Process:**
 
 El sistema generativo procesará los inputs en tiempo real y los traducirá a outputs visuales dinámicos.
 
@@ -59,6 +59,15 @@ El sistema generativo procesará los inputs en tiempo real y los traducirá a ou
 
 ### 2. **Deformación gravitatoria**
 
+* **Idea visual:** Imagínate que alrededor de Nerón, proyectado en el escenario, hay una especie de burbuja invisible que distorsiona el espacio, como si fuera un lente de aumento que dobla la luz y arrastra las partículas hacia él.
+* **Cómo funciona:**
+
+  * La **posición de Nerón** en el escenario (coordenadas X, Y obtenidas con Kinect) define el centro del campo gravitatorio.
+  * La **intensidad de su voz** (amplitud) determina el tamaño de ese campo.
+  * Si canta con fuerza (amplitud alta), el campo se expande y distorsiona más elementos.
+  * Si canta suave (amplitud baja), el campo es pequeño y apenas altera lo que está alrededor.
+* **Qué se ve:** Las partículas o textos que pasen cerca de esa “zona” cambian su trayectoria, se curvan, giran, como si estuvieran atrapadas por una fuerza invisible que las atrae o repele. Esto hace que el espacio visual parezca vivo y responda físicamente a la performance.
+
 * **Datos:** posición (X, Y) y amplitud de voz.
 * **Condiciones:**
 
@@ -71,7 +80,7 @@ El sistema generativo procesará los inputs en tiempo real y los traducirá a ou
 
 ### 3. **Resonancia visual con el beat**
 
-* **Datos:** BPM y tiempo desde último golpe.
+* **Datos:** BPM (beats per minute) y tiempo desde último golpe.
 * **Condiciones:**
 
   * En cada golpe → onda expansiva que aumenta tamaño de partículas cercanas al artista.
@@ -102,7 +111,7 @@ El sistema generativo procesará los inputs en tiempo real y los traducirá a ou
 * **Proyecciones de palabras:** texto flotante que se transforma en plumas o fragmentos oscuros según su polaridad.
 * **Transformación final:** cierre en tonos cálidos que simboliza la trascendencia del vuelo y la aceptación de la caída.
 
-### **Letra anotada de “Ícaro” – Nerón Arkano**
+### **Letra de Ícaro – Nerón Arkano**
 
 **Ya sé que llevo mucho tiempo en esta puesta la razón que no razóna y el cora que no demuestra**
 (Input: amplitud de voz baja, tono grave) → (Process: partículas lentas, paleta azulada) → (Output: ambiente oscuro, movimiento visual denso y pesado)
@@ -169,4 +178,5 @@ El sistema generativo procesará los inputs en tiempo real y los traducirá a ou
 
 **mi llanto me tumba de rodillas deja en coma mis comillas la sombras del recuerdo no se rastrillan**
 (Input: amplitud baja final) → (Process: desvanecimiento global) → (Output: cierre visual tenue y difuso)
+
 
