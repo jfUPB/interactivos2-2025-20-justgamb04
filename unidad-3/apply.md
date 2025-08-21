@@ -310,5 +310,6 @@ socket.on("data", (payload) => {
 
 ##  Video de funcionamiento
 
+https://youtu.be/DE-25dsIm8E?si=j7aV_UaOHLZTMSYj
 
 
