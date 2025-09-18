@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #6b8e23 100%);
+    color: white;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #90ee90, #228b22, #006400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(144, 238, 144, 0.3);
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.9;
+    color: #98fb98;
+}
+
+#p5-container {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.footer {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+#connection-status {
+    color: #f1faee;
+}
+
+#connection-status.connected {
+    color: #06d6a0;
+}
+
+#connection-status.disconnected {
+    color: #ef476f;
+}
+
+#roots-count {
+    color: #90ee90;
+    font-weight: bold;
+}
+
+.instructions {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.instructions p {
+    margin: 2px 0;
+    color: #98fb98;
+}
+
+/* Efectos táctiles */
+.touch-effect {
+    position: absolute;
+    border: 2px solid #90ee90;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: touchRipple 1s ease-out forwards;
+}
+
+@keyframes touchRipple {
+    0% {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header p {
+        font-size: 0.9rem;
+    }
+    
+    .status {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .instructions {
+        font-size: 0.7rem;
+    }
+}

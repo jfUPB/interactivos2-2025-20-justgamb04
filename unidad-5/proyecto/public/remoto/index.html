@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remoto - Pulsaciones Colectivas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💫 Pulsaciones Colectivas</h1>
+            <p>Haz latir el corazón de la luna</p>
+        </div>
+        
+        <div class="pulse-area" id="pulse-area">
+            <div class="moon-visualization" id="moon-viz">
+                <div class="moon-core">
+                    <div class="pulse-rings" id="pulse-rings"></div>
+                    <div class="moon-text">
+                        <h2>🌙</h2>
+                        <p>TAP PARA PULSAR</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="p5-container"></div>
+        </div>
+        
+        <div class="controls">
+            <div class="intensity-control">
+                <label for="intensity-slider">Intensidad del Pulso:</label>
+                <input type="range" id="intensity-slider" min="0.5" max="3" value="1" step="0.1">
+                <span id="intensity-value">1.0</span>
+            </div>
+            
+            <div class="pulse-modes">
+                <button class="mode-btn active" data-mode="single">Pulso Simple</button>
+                <button class="mode-btn" data-mode="rhythm">Ritmo</button>
+                <button class="mode-btn" data-mode="wave">Onda</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Estado:</span>
+                    <span id="connection-status">Conectando...</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Pulsos Enviados:</span>
+                    <span id="pulses-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">BPM:</span>
+                    <span id="bpm-counter">0</span>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <p>🫀 Cada pulso hace latir la luna en la visualización principal</p>
+                <p>🌊 Múltiples usuarios pueden sincronizar sus pulsos</p>
+                <p>🎵 Sigue el ritmo de "Nod Krai" para mayor conexión</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>

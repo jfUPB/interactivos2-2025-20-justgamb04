@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 10px 0;
+    background: linear-gradient(45deg, #ffffff, #a8dadc, #457b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.info {
+    text-align: center;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.info p {
+    font-size: 0.9rem;
+    margin: 2px 0;
+}
+
+#p5-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+#fullscreen-btn {
+    background: linear-gradient(45deg, #457b9d, #a8dadc);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#fullscreen-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(69, 123, 157, 0.4);
+}
+
+.status {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+#connection-status {
+    color: #f1faee;
+}
+
+#connection-status.connected {
+    color: #06d6a0;
+}
+
+#connection-status.disconnected {
+    color: #ef476f;
+}
+
+#clients-count {
+    color: #a8dadc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+        margin: 5px 0;
+    }
+    
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+    
+    .status {
+        gap: 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Efectos de luna */
+@keyframes moonGlow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    }
+    50% { 
+        filter: drop-shadow(0 0 40px rgba(168, 218, 220, 0.5));
+    }
+}
+
+.moon-glow {
+    animation: moonGlow 3s ease-in-out infinite;
+}
