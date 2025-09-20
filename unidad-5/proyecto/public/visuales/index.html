@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Interactiva - Visuales Principales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 Luna Interactiva - Nod Krai</h1>
+        <div class="info">
+            <p>Visualización principal - Estado 1</p>
+            <p>Inspirado en Aurora - Performance en vivo</p>
+        </div>
+        <div id="p5-container"></div>
+        <div class="controls">
+            <button id="fullscreen-btn">Pantalla Completa</button>
+            <div class="status">
+                <span id="connection-status">Conectando...</span>
+                <span id="clients-count">Clientes: 0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>

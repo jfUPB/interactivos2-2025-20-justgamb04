@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile1 - Crear Raíces</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌱 Crear Raíces</h1>
+            <p>Toca la pantalla para hacer crecer raíces hacia la luna</p>
+        </div>
+        
+        <div id="p5-container"></div>
+        
+        <div class="footer">
+            <div class="status">
+                <span id="connection-status">Conectando...</span>
+                <span id="roots-count">Raíces: 0</span>
+            </div>
+            <div class="instructions">
+                <p>💫 Cada toque crea una raíz que crece orgánicamente</p>
+                <p>🌿 Las raíces se ramifican y alimentan la luna central</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+</body>
+</html>
